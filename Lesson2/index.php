@@ -70,24 +70,21 @@ var_dump(power(2,4));
 echo "<br>";
 
 function getHour(){
-    if (4 < date('G') && date('G') < 21 || date('G') == 0){
-        return date('G') . "часов";
-    } else if (1 < date('G') && date('G') <= 4 || 21 < date('G') && date('G')  <= 24){
-        return date('G') . "часа";
-    } else {
+    if (date('G') % 10 == 1){
         return date('G') . "час";
+    } else if (date('G') % 10 >= 2 && date('G') % 10 <= 4){
+        return date('G') . "часов";
+    } else {
+        return date('G') . "часа";
     }
 }
 function getMinute(){
-    if (date('i') == 1 || date('i') == 11 || date('i') == 21 || date('i') == 31 || date('i') == 41 ||
-    date('i') == 51){
+    if (date('i') % 10 == 1){
         return date('i') . "минута";
-    } else if (date('i') == 0 || date('i') <= 20){
-        return date('i') . "минут";
-    } else if (date('i') % 11 == 0) {
+    } else if (date('G') % 10 >= 2 && date('G') % 10 <= 4){
         return date('i') . "минуты";
     } else {
         return date('i') . "минут";
-    }
+    } 
 }
 echo(gethour() . getMinute());
