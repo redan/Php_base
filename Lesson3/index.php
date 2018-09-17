@@ -93,8 +93,6 @@ $letters = [
 //Очевидный минус которы сразу бросается в глаза это регистрозависимость, пока не придумал как ее победить
 function getTranslit($letters, $strig){
     $strArray = preg_split('//u',$strig,null,PREG_SPLIT_NO_EMPTY);
-    var_dump($strig);
-    var_dump($strArray);
     $finalStr = "<br>";
     foreach ($strArray as $keyRus => $valueRus){
         foreach ($letters as $key => $value){
@@ -103,9 +101,71 @@ function getTranslit($letters, $strig){
             }
         }
     }
-    var_dump($finalStr);
     echo($finalStr);
 }
 $strForTranslit = "образовательный портал создает условия для реализации основных профессиональных образовательных программ.";
 echo("<br>");
 getTranslit($letters, $strForTranslit);
+//Задание 5
+echo("<br>");
+$replase = str_replace(" ", "_", $strForTranslit);
+echo($replase);
+//Задание 6
+$menu = [
+    "Home" => "#",
+    "Chapter 1" => [
+        "point 1" => "#",
+        "point 2" => "#",
+        "point 3" => "#",
+    ],
+    "Chapter 2" => [
+        "point 1" => "#",
+        "point 2" => "#",
+        "point 3" => "#",
+    ],
+    "Contact" => "#",
+];
+function menuRender($array){
+    echo("<ul>");
+    foreach($array as $key => $value){
+        if(is_array($value)){
+            echo("<li>$key<ul>");
+            foreach($array[$key] as $subKey => $subValue){
+                echo("<li><a href=$subValue>$subKey</a></li>");
+            }
+            echo("</ul></li>");
+        } else {
+            echo("<li><a href=$value>$key</a></li>");
+        }
+        
+    }
+    echo("</ul>");
+}
+menuRender($menu);
+//Задние 7
+for($i = 0 ; $i < 10 ; print($i++)){
+}
+//Задание 8
+foreach($localCity as $key => $value){
+    echo("<br>$key:<br>");
+    foreach($localCity[$key] as $key => $value){
+        if(substr($value, 0 , 2) == "К"){
+            echo("$value, ");
+        }
+    }
+}
+//Задание 9 
+function getTranslitReplase($letters, $strig){
+    $strArray = preg_split('//u',$strig,null,PREG_SPLIT_NO_EMPTY);
+    $finalStr = "<br>";
+    foreach ($strArray as $keyRus => $valueRus){
+        foreach ($letters as $key => $value){
+            if ($valueRus == $key) {
+                $finalStr .= $value;
+            }
+        }
+    }
+    $finalStr = str_replace(" ", "_", $finalStr);
+    echo($finalStr);
+}
+getTranslitReplase($letters, $strForTranslit);
