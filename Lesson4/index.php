@@ -1,5 +1,6 @@
-<base target="_blank">
 <?php
+header("Content-type: text/html; charset=utf-8");
+
 $dir = "img";
 $images = scandir($dir);
 //Функция для прорисовки изображений
@@ -42,6 +43,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     }
 }
 ?>
+<base target="_blank">
 <style>
 img{
     margin: 10px;
