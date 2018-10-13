@@ -11,11 +11,11 @@
 <div class="products">
     <?php foreach ($result as $product) : ?>
     <div class="item">
-        <a href="products/product.php/?id=<?=$product["id"]?>">
+        <a href="pages/products/product/?id=<?=$product["id"]?>">
             <h2><?=$product["product"]?></h2>
-            <img src="<?="products/img/good{$product["id"]}/" . getCaseImg($product["id"])["img_1"]?>" alt="" width="250px">
+            <img src="<?="./pages/products/img/good{$product["id"]}/" . getCaseImg($product["id"])["img_1"]?>" alt="" width="250px">
         </a>
-        <form action="products/addToBasket.php" method="post">
+        <form action="pages/products/addToBasket" method="post">
             <input type="hidden" name="id" value="<?=$product["id"]?>">
             Количество
             <input type="text" name="count">

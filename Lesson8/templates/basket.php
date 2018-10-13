@@ -8,7 +8,7 @@
     </div>
     <?php endforeach ?>
 </div>
-<form action="../user/getOrder.php" method="post">
+<form action="pages/user/getOrder" method="post">
     <input type="text" name="adress">
     <input type="submit" value="Оформить заказ">
 </form>

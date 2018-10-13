@@ -12,10 +12,11 @@
 <body>
 <div class="header">
     <div style="border:solid 1px black;width:150px;">
-        <p><a href="user/basket.php">Корзина:</a> <?=basketCount()?>товаров.</p>
-        <a href="user/registration.php">Регистрация</a>
-        <a href="user/login.php">Вход</a>
-        <a href="user/lk.php">Личный кабинет</a>
+        <p><a href="pages/user/">Корзина:</a> <?=basketCount()?>товаров.</p>
+        <a href="pages/user/registration">Регистрация</a>
+        <a href="pages/user/login">Вход</a>
+        <a href="pages/user/lk">Личный кабинет</a>
+        <a href="pages/user/addPdoduct"></a>
     </div>
 </div>
 <div class="content"><?=$content?></div>
